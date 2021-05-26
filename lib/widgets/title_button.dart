@@ -42,7 +42,7 @@ class TitleWithButton extends StatelessWidget {
                   color: Colors.white,
                 ),
                 SizedBox(
-                  width: 12,
+                  width: 6,
                 ),
                 Text(
                   btnLabel,

@@ -2,13 +2,22 @@ import 'package:admin_cms/utils/constants.dart';
 import 'package:admin_cms/widgets/menu_item.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
 import 'package:unicons/unicons.dart';
+import 'package:get/get.dart';
 
-class Menu extends StatelessWidget {
+class Menu extends StatefulWidget {
   const Menu({
     Key? key,
   }) : super(key: key);
 
+  @override
+  _MenuState createState() => _MenuState();
+}
+
+RxString activeScreen = 'dashboard'.obs;
+
+class _MenuState extends State<Menu> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -32,34 +41,76 @@ class Menu extends StatelessWidget {
             ),
           ),
           MenuItem(
-            icon: UniconsLine.home_alt,
-            isSelected: true,
+            ontap: () => activeScreen.value = 'home',
+            deco: Obx(
+              () => activeScreen.value == 'home'
+                  ? ItemSelected(
+                      icon: UniconsLine.home_alt,
+                    )
+                  : ItemUnselected(
+                      icon: UniconsLine.home_alt,
+                    ),
+            ),
           ),
           MenuItem(
-            icon: UniconsLine.home_alt,
-            isSelected: false,
-          ),
-          MenuItem(
-            icon: UniconsLine.chart_pie_alt,
-            isSelected: false,
-          ),
-          MenuItem(
-            icon: UniconsLine.envelope_alt,
-            isSelected: false,
-          ),
-          MenuItem(
-            icon: UniconsLine.bell_slash,
-            isSelected: false,
-          ),
-          MenuItem(
-            icon: UniconsLine.setting,
-            isSelected: false,
-          ),
-          MenuItem(
-            icon: UniconsLine.sign_out_alt,
-            isSelected: false,
+            ontap: () => activeScreen.value = 'dashboard',
+            deco: Obx(
+              () => activeScreen.value == 'dashboard'
+                  ? ItemSelected(
+                      icon: UniconsLine.chart_pie_alt,
+                    )
+                  : ItemUnselected(
+                      icon: UniconsLine.chart_pie_alt,
+                    ),
+            ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+class ItemUnselected extends StatelessWidget {
+  const ItemUnselected({
+    Key? key,
+    this.icon,
+  }) : super(key: key);
+  final icon;
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Icon(
+        icon,
+        size: 28,
+        color: primaryColor,
+      ),
+    );
+  }
+}
+
+class ItemSelected extends StatelessWidget {
+  const ItemSelected({
+    Key? key,
+    this.icon,
+  }) : super(key: key);
+  final icon;
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        color: primaryColor,
+        borderRadius: BorderRadius.circular(8),
+        boxShadow: [
+          BoxShadow(
+            blurRadius: 12,
+            color: primaryColor,
+          )
+        ],
+      ),
+      child: Icon(
+        icon,
+        size: 28,
+        color: Colors.white,
       ),
     );
   }
@@ -68,14 +119,18 @@ class Menu extends StatelessWidget {
 class MainTitle extends StatelessWidget {
   const MainTitle({
     Key? key,
+    this.title,
   }) : super(key: key);
-
+  final title;
   @override
   Widget build(BuildContext context) {
+    DateTime now = DateTime.now();
+    String formattedDate = DateFormat.yMMMMEEEEd().format(now);
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'Dashboard',
+          title,
           style: GoogleFonts.getFont(
             'Barlow',
             color: Colors.white,
@@ -87,10 +142,10 @@ class MainTitle extends StatelessWidget {
           height: 4,
         ),
         Text(
-          'Tuesday 2 Feb, 2021',
+          formattedDate,
           style: GoogleFonts.getFont(
             'Barlow',
-            color: Color(0xffABBBC2),
+            color: primaryTextColor,
             fontSize: 16,
             fontWeight: FontWeight.w400,
           ),

@@ -42,7 +42,7 @@ class DashboardCard extends StatelessWidget {
                   width: 12,
                 ),
                 Text(
-                  percent > 0 ? '+$percent%' : '-$percent%',
+                  percent > 0 ? '+$percent%' : '$percent%',
                   style: GoogleFonts.getFont(
                     'Barlow',
                     fontSize: 18,
@@ -95,7 +95,7 @@ class DashboardCard extends StatelessWidget {
                 'Barlow',
                 fontSize: 18,
                 fontWeight: FontWeight.w500,
-                color: Color(0xffABBBC2),
+                color: primaryTextColor,
               ),
             ),
           ],
