@@ -34753,7 +34753,7 @@ p=t.E
 return new T.cJ(C.nm,M.cm(n,T.eX(H.e([T.o9(H.e([k,j,i,s,M.cm(n,h,n,new S.ce(r,n,n,q,n,n,C.R),32,n,n,32)],p)),T.dl(n,16,n),L.cL(o.f,B.cD(m,C.v,32,C.l),n,n),T.dl(n,16,n),L.cL(o.e,B.cD(m,C.da,18,C.k),n,n)],p),C.b4),n,new S.ce(C.bI,n,n,l,n,n,C.R),200,n,new V.aM(24,24,24,24),290),n)}}
 G.l9.prototype={
 M:function(a,b){var s=null,r=t.E
-return new T.cJ(C.nl,T.o9(H.e([U.a6k("assets/img1.png",56,56),T.dl(s,s,16),T.eX(H.e([L.cL("Spicy seasoned seafood noodles",B.cD("Barlow",C.v,20,C.k),s,s),T.dl(s,4,s),L.cL("200 dishes ordered",B.cD("Barlow",C.da,16,C.j),s,s)],r),C.b4)],r)),s)}}
+return new T.cJ(C.nl,T.o9(H.e([U.a6k("assets/food1.png",56,56),T.dl(s,s,16),T.eX(H.e([L.cL("Spicy seasoned seafood noodles",B.cD("Barlow",C.v,20,C.k),s,s),T.dl(s,4,s),L.cL("200 dishes ordered",B.cD("Barlow",C.da,16,C.j),s,s)],r),C.b4)],r)),s)}}
 D.J6.prototype={
 aO:function(){return new D.XA(C.y)}}
 D.XA.prototype={
