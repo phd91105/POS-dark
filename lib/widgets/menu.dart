@@ -15,7 +15,7 @@ class Menu extends StatefulWidget {
   _MenuState createState() => _MenuState();
 }
 
-RxString activeScreen = 'dashboard'.obs;
+RxString activeScreen = 'home'.obs;
 
 class _MenuState extends State<Menu> {
   @override
