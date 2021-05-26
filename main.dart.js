@@ -35845,7 +35845,7 @@ $R:2,
 $S:136}
 G.nM.prototype={
 N:function(a,b){var s=null,r="Barlow",q=K.db(15),p=this.c,o=t.E
-return T.Lx(C.kQ,H.e([M.cl(s,T.fc(H.e([new R.p5(s),L.cP(p.b,B.cG(r,C.v,20,C.k),C.c4,s),T.df(s,12,s),L.cP(""+p.e+" VND",B.cG(r,C.bo,18,C.k),s,s),T.df(s,8,s),L.cP("20 Bowls available",B.cG(r,C.df,18,C.c),s,s),T.df(s,32,s)],o),C.aO),s,s,new S.ck(C.bO,s,s,q,s,s,C.R),s,new V.aN(0,50,0,0),new V.aN(32,0,32,0),s),new T.Q9(K.db(45),new U.nP(M.auo(s,s,new D.oa(p.f,1)),132,132,C.hy,s),s)],o),C.cW)}}
+return T.Lx(C.kQ,H.e([M.cl(s,T.fc(H.e([new R.p5(s),L.cP(p.b,B.cG(r,C.v,20,C.k),C.c4,s),T.df(s,12,s),L.cP(""+p.e+" VND",B.cG(r,C.bo,18,C.k),s,s),T.df(s,8,s),L.cP("20 Bowls available",B.cG(r,C.df,18,C.c),s,s),T.df(s,32,s)],o),C.aO),s,s,new S.ck(C.bO,s,s,q,s,s,C.R),s,new V.aN(0,50,0,0),new V.aN(32,0,32,0),s),new T.Q9(K.db(66),new U.nP(M.auo(s,s,new D.oa(p.f,1)),132,132,C.hy,s),s)],o),C.cW)}}
 Y.J4.prototype={
 aK:function(){return new Y.Y6(C.y)}}
 Y.Y6.prototype={
