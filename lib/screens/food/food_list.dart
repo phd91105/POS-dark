@@ -1,14 +1,15 @@
+import 'package:admin_cms/controllers/food_controller.dart';
+import 'package:admin_cms/models/food_model.dart';
 import 'package:admin_cms/utils/constants.dart';
 import 'package:admin_cms/widgets/menu.dart';
 import 'package:admin_cms/widgets/title_button.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:unicons/unicons.dart';
 
 class FoodList extends StatelessWidget {
-  const FoodList({
-    Key? key,
-  }) : super(key: key);
+  final FoodController foodController = Get.put(FoodController());
 
   @override
   Widget build(BuildContext context) {
@@ -39,23 +40,24 @@ class FoodList extends StatelessWidget {
                 Container(
                   height: MediaQuery.of(context).size.height,
                   padding: EdgeInsets.all(24),
-                  child: GridView.count(
-                    crossAxisCount: 4,
-                    mainAxisSpacing: 56,
-                    childAspectRatio: (1 / 1.3),
-                    crossAxisSpacing: 68,
-                    children: [
-                      FoodItem(),
-                      FoodItem(),
-                      FoodItem(),
-                      FoodItem(),
-                      FoodItem(),
-                      FoodItem(),
-                      FoodItem(),
-                      FoodItem(),
-                      FoodItem(),
-                      FoodItem(),
-                    ],
+                  child: Obx(
+                    () => foodController.isLoading.value
+                        ? Center(
+                            child: CircularProgressIndicator(
+                            color: primaryColor,
+                          ))
+                        : GridView.builder(
+                            itemCount: foodController.foodList.length,
+                            gridDelegate:
+                                SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: 4,
+                              mainAxisSpacing: 56,
+                              childAspectRatio: (1 / 1.3),
+                              crossAxisSpacing: 68,
+                            ),
+                            itemBuilder: (context, index) =>
+                                FoodItem(foodController.foodList[index]),
+                          ),
                   ),
                 ),
               ],
@@ -68,9 +70,8 @@ class FoodList extends StatelessWidget {
 }
 
 class FoodItem extends StatelessWidget {
-  const FoodItem({
-    Key? key,
-  }) : super(key: key);
+  const FoodItem(this.food);
+  final Food food;
 
   @override
   Widget build(BuildContext context) {
@@ -78,6 +79,7 @@ class FoodItem extends StatelessWidget {
       alignment: Alignment.topCenter,
       children: [
         Container(
+          width: 240,
           margin: EdgeInsets.only(top: 50),
           padding: EdgeInsets.symmetric(horizontal: 32),
           decoration: BoxDecoration(
@@ -88,7 +90,7 @@ class FoodItem extends StatelessWidget {
             children: [
               Spacer(),
               Text(
-                'Spicy seasoned seafood noodles',
+                food.name,
                 textAlign: TextAlign.center,
                 style: GoogleFonts.getFont(
                   'Barlow',
@@ -101,12 +103,12 @@ class FoodItem extends StatelessWidget {
                 height: 12,
               ),
               Text(
-                '\$ 2.29',
+                '${food.price} VND',
                 style: GoogleFonts.getFont(
                   'Barlow',
                   fontSize: 18,
-                  fontWeight: FontWeight.w400,
-                  color: Colors.white,
+                  fontWeight: FontWeight.w500,
+                  color: primaryColor,
                 ),
               ),
               SizedBox(
@@ -128,11 +130,12 @@ class FoodItem extends StatelessWidget {
           ),
         ),
         ClipRRect(
-          borderRadius: BorderRadius.circular(40.0),
-          child: Image.asset(
-            'assets/food1.png',
+          borderRadius: BorderRadius.circular(66),
+          child: Image.network(
+            food.image,
             height: 132,
             width: 132,
+            fit: BoxFit.fill,
           ),
         ),
       ],

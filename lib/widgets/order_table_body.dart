@@ -8,6 +8,12 @@ class OrderTableBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final rows = <TableRow>[];
+    for (var i = 0; i < 6; i++) {
+      rows.add(
+        buildTableRow(),
+      );
+    }
     return Table(
       columnWidths: const <int, TableColumnWidth>{
         0: FixedColumnWidth(320),
@@ -15,17 +21,7 @@ class OrderTableBody extends StatelessWidget {
         2: FixedColumnWidth(260),
         3: FixedColumnWidth(140),
       },
-      children: [
-        buildTableRow(),
-        buildTableRow(),
-        buildTableRow(),
-        buildTableRow(),
-        buildTableRow(),
-        buildTableRow(),
-        buildTableRow(),
-        buildTableRow(),
-        buildTableRow(),
-      ],
+      children: rows,
     );
   }
 

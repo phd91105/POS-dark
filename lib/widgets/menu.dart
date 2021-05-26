@@ -15,7 +15,7 @@ class Menu extends StatefulWidget {
   _MenuState createState() => _MenuState();
 }
 
-RxString activeScreen = 'home'.obs;
+RxString activeScreen = 'dashboard'.obs;
 
 class _MenuState extends State<Menu> {
   @override
@@ -41,18 +41,6 @@ class _MenuState extends State<Menu> {
             ),
           ),
           MenuItem(
-            ontap: () => activeScreen.value = 'home',
-            deco: Obx(
-              () => activeScreen.value == 'home'
-                  ? ItemSelected(
-                      icon: UniconsLine.home_alt,
-                    )
-                  : ItemUnselected(
-                      icon: UniconsLine.home_alt,
-                    ),
-            ),
-          ),
-          MenuItem(
             ontap: () => activeScreen.value = 'dashboard',
             deco: Obx(
               () => activeScreen.value == 'dashboard'
@@ -61,6 +49,18 @@ class _MenuState extends State<Menu> {
                     )
                   : ItemUnselected(
                       icon: UniconsLine.chart_pie_alt,
+                    ),
+            ),
+          ),
+          MenuItem(
+            ontap: () => activeScreen.value = 'home',
+            deco: Obx(
+              () => activeScreen.value == 'home'
+                  ? ItemSelected(
+                      icon: UniconsLine.home_alt,
+                    )
+                  : ItemUnselected(
+                      icon: UniconsLine.home_alt,
                     ),
             ),
           ),
