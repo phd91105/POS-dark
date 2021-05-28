@@ -1,15 +1,11 @@
 import 'package:admin_cms/utils/constants.dart';
-import 'package:admin_cms/widgets/food.dart';
+import 'package:admin_cms/widgets/food_dashboard_right.dart';
 import 'package:admin_cms/widgets/title_button.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:unicons/unicons.dart';
 
 class DashboardRight extends StatelessWidget {
-  const DashboardRight({
-    Key? key,
-  }) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -41,10 +37,10 @@ class DashboardRight extends StatelessWidget {
                     child: SingleChildScrollView(
                       child: Column(
                         children: [
-                          Food1(),
-                          Food1(),
-                          Food1(),
-                          Food1(),
+                          MostOrdered(),
+                          MostOrdered(),
+                          MostOrdered(),
+                          MostOrdered(),
                         ],
                       ),
                     ),

@@ -1,3 +1,4 @@
+import 'package:admin_cms/controllers/nav_controller.dart';
 import 'package:admin_cms/utils/constants.dart';
 import 'package:admin_cms/widgets/menu_item.dart';
 import 'package:flutter/material.dart';
@@ -6,18 +7,8 @@ import 'package:intl/intl.dart';
 import 'package:unicons/unicons.dart';
 import 'package:get/get.dart';
 
-class Menu extends StatefulWidget {
-  const Menu({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  _MenuState createState() => _MenuState();
-}
-
-RxString activeScreen = 'dashboard'.obs;
-
-class _MenuState extends State<Menu> {
+class Menu extends StatelessWidget {
+  final navController = Get.put(NavController());
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -41,9 +32,9 @@ class _MenuState extends State<Menu> {
             ),
           ),
           MenuItem(
-            ontap: () => activeScreen.value = 'dashboard',
+            ontap: () => navController.switchtoScreen('dashboard'),
             deco: Obx(
-              () => activeScreen.value == 'dashboard'
+              () => navController.activeScreen.value == 'dashboard'
                   ? ItemSelected(
                       icon: UniconsLine.chart_pie_alt,
                     )
@@ -53,14 +44,26 @@ class _MenuState extends State<Menu> {
             ),
           ),
           MenuItem(
-            ontap: () => activeScreen.value = 'home',
+            ontap: () => navController.switchtoScreen('home'),
             deco: Obx(
-              () => activeScreen.value == 'home'
+              () => navController.activeScreen.value == 'home'
                   ? ItemSelected(
                       icon: UniconsLine.home_alt,
                     )
                   : ItemUnselected(
                       icon: UniconsLine.home_alt,
+                    ),
+            ),
+          ),
+          MenuItem(
+            ontap: () => navController.switchtoScreen('setting'),
+            deco: Obx(
+              () => navController.activeScreen.value == 'setting'
+                  ? ItemSelected(
+                      icon: UniconsLine.setting,
+                    )
+                  : ItemUnselected(
+                      icon: UniconsLine.setting,
                     ),
             ),
           ),
@@ -104,7 +107,7 @@ class ItemSelected extends StatelessWidget {
           BoxShadow(
             blurRadius: 12,
             color: primaryColor,
-          )
+          ),
         ],
       ),
       child: Icon(

@@ -2,11 +2,7 @@ import 'package:admin_cms/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class Food1 extends StatelessWidget {
-  const Food1({
-    Key? key,
-  }) : super(key: key);
-
+class MostOrdered extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -46,7 +42,7 @@ class Food1 extends StatelessWidget {
                 ),
               ),
             ],
-          )
+          ),
         ],
       ),
     );

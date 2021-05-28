@@ -2,10 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class OrderTableBody extends StatelessWidget {
-  const OrderTableBody({
-    Key? key,
-  }) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     final rows = <TableRow>[];

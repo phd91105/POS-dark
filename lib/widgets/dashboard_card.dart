@@ -71,7 +71,7 @@ class DashboardCard extends StatelessWidget {
                           UniconsLine.arrow_down,
                           color: Colors.redAccent,
                         ),
-                )
+                ),
               ],
             ),
             SizedBox(
